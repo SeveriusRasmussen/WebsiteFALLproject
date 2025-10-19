@@ -1,0 +1,23 @@
+8. Kør lokalt:
+kør i terminalen med dette:
+    npm run dev
+Fordi vi har dev under scripts i package.json.
+
+9. Deploy til Vercel
+kør i terminalen med dette:
+    npm i -g vercel
+    vercel          # Første gange -> log ind, vælg projekt.
+        1. Set up: Y
+        2. Which scope should...: enter (spørg Anders om arrows?)
+        3. Link to existing projects?: N 
+        (Nej, fordi dette er nyt projekt, ellers spørg anders.)
+        4. Write name 
+        (default is the project name) 
+        (remember NO upper-case! '-', '.', '_' is ok!)
+        5. In which directory is your code located? ./ 
+        (Det betyder bare at den ligger i den nuværende mappen)
+        6. Want to modify these setting? No
+        7. Do you want to change additional project settings? No
+        8. Done! tilgå "Production:"-linket!
+        Du kan undersøg (inspect) din projekt med "inspect"-linket.
+    vercel --prod

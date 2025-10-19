@@ -1,0 +1,8 @@
+5. Serverless entry til Vercel - api/index.js
+Det gør din express-app til en serverless function under /api.
+
+6. Rewrites så alt går til Express - vercel.json
+Uden dette rammer / ikke din function
+Med rewrite går alle ruter (routes) til api/index.js -> 
+Express håndterer det (inkl. statiske filer).
+

@@ -1,0 +1,13 @@
+2. package.json ændring:
+    "type": "commonJS" til "type": "module".
+    Sæt i scripts block:
+    "dev": "nodemon server.local.js",
+    "start": "node server.local.js",
+    "vercel-build": "echo Skip build"
+
+Forklaring:
+- "type": "module" -> så du kan bruge import
+- dev/start -> lokal kørsel (med app.listen)
+- Vercel behøver ingen build her, 
+  så "vercel-build" kan være tomt.
+- Ændringen er for at den kan køres fejlfrit.

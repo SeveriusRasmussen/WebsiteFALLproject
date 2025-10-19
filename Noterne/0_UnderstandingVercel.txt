@@ -1,0 +1,5 @@
+0. Forstå Vercel hurtigt:
+    - Vercel er serverless: Ingen app.listen() i produktion.
+    - Alt i /api bliver automatisk API-endpoints
+    - Hvis du vil have hele din express-app på vercel, 
+    omslutter vi den i en serverless-funktion og rewriter alt trafik til /api.

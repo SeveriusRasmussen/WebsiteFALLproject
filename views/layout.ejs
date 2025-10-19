@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+    <header class="site-header">
+        <nav><a href="/">Home</a></nav>
+    </header>
+
+    <main class="content">
+        <%- body %>
+    </main>
+
+    <footer class="site-footer">
+        <small>© <%= new Date().getFullYear() %> Severius</small>
+    </footer>
+</body>
+</html>

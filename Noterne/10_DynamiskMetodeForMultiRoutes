@@ -1,0 +1,12 @@
+10. Den smarte "dynamiske" måde at lave routes:
+
+Man bruger addStaticRoutes()
+som Anders læreren har i hans projektet VercelShowcase...
+Det gør følgende:
+    1. Kigger i hele din "public"-mappen
+    2. Finder alle filer (HTML, CSS, Billeder, osv.)
+    3. Laver automatisk en app.get() route for hver af dem.
+Så i stedet for at lave 10+ app.get(...), gør funktionen det for dig automatisk!
+Se i server.js under "Smart Metode"-kommentaren.
+
+Så er det hele KLAR! Lav nu HTML og CSS alt du har lyst til!

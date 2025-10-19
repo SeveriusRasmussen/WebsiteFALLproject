@@ -1,0 +1,8 @@
+3. Express-app uden listen:
+Se i server.js
+Vi eksporterer app (ingen listen -> Vercel styrer det).
+Vi bruger path (lille p), og laver selv _dirname i ESM.
+
+4. Lokal server der lytter:
+Se i server.local.js
+Lokalt skal vi stadig bruge app.listen.

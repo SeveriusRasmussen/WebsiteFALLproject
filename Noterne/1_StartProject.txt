@@ -1,0 +1,22 @@
+1. Start projektet:
+    Terminalen:
+    Opret mappen
+    - "mkdir newVERCELproject"
+    gå i mappen
+    - "cd newVERCELproject"
+    Install NPM
+    - "npm init -y"
+    Her er anderledes end normal express!
+    Install express med vercel.
+    - "npm i express serverless-http"
+    Install nodemon
+    - "npm i -D nodemon"
+    Install markdown-it (EJS)
+    - "npm i express ejs markdown-it"
+    Til HTML: markdown-it
+
+
+Hvorfor:
+    - express = web framework til at bygge server med
+    - serverless-http = adapter, så Express kører som serverless
+    - nodemon = auto-restart lokalt

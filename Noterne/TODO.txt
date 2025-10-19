@@ -1,0 +1,133 @@
+Find information the mandatory task in 
+Anders Latif's GitHub on 00._Mandatories.
+
+Short version: Create a website that contains
+documentation for what you have learned so far.
+Feedback in teams with your website link.
+
+Requirements for the project:
+    - Serve the pages with Express
+    - Use Server-Side Rendering (SSR) (Just create it like we have created webites so far)
+      Allowed to use Anders's SSR solution, build upon it or create own to fit your use case.
+    - Split up the documentation in pages than a long pages
+    - Nice styling (Custom or with a styling framework)
+    - Make sure that the repository doesn't contain files that
+      shouldn't be there.
+
+Requirements about the documentation:
+    - Should contain terminal commands
+    - Should contain code snippets (Hvad er det her?)
+    - Should contain all the tools we've used and explain them
+    - Should cover all the theory (learning goals) 
+      that we've touched upon (Se Onenote!)
+
+Whole Plan:
+    - Make website with express and SSR
+    - Split up the pages and styling
+
+1. Plan:
+TODO 1: a Website project:
+        Installs NPM, Express and Nodemon:
+            Package (npm init -y) (Installs NPM)
+                installs package.json, a json-file without any dependencies.
+
+            Express (npm i express)
+                Express is the webframework that you use to build the server.
+                installs package_lock.json and node_modules folder.
+                Adds the Express dependency into package.json
+                without "-D" because the package is a "dependency", needed for the program to run in production.
+                All packages that Express needed are placed in node_modules folder.
+
+                Remember to change in the package.json:
+                (This fixed the running error)
+                    Change the "type": "commonjs" to "type": "module".
+                With Express you can use this code:
+                    import express from "express";
+                    const app = express();
+                    app.get("/", (req, res) => res.send("Hello World"));
+                    app.listen(3000);
+                This give you a website that writes "Hello World" on the browser!
+                The webserver, the code can't be running without it!
+
+                If you don't want the import express from "express";
+                Then this is the default way to do ("type": "commonjs"):
+                    const express = require("express");
+                    const app = express();
+
+                    app.get("/", (req, res) => {
+                        res.send("Hello Express!");
+                    });
+
+                    app.listen(3000, () => console.log("Server running"));
+                This give you the first express exercise.
+
+                Different between commonjs and module:
+                    CommonJS is standard in old node.js projects:
+                        This is hard to work with frontend and backend.
+                        Can't be used directly in browser code.
+                    ES Module is newer metode:
+                        Newer standard in JavaScript and better support for "await"
+                        Easy to share code between frontend and backend.
+                        More future ensured.
+
+            Nodemon (npm i -D nodemon) (More packages in node_modules folder)
+                Nodemon is a tool that automatically reboot your server whenever you make a change.
+                -D is the "devDependencies" placed in package.json with the nodemon version.
+                This is a development-dependence.
+                All dependencies that nodemon needs are placed in node_modules folder.
+                Easy development (automatic rerun)
+
+        Package.json changes:
+            "scripts": {
+                "dev": "nodemon src/server.js",
+                "start": "node src/server.js"
+            }
+            Under development:
+                npm run dev
+            When deploys:
+                npm start
+            start is the only one NPM understood without "run" in it.
+
+        Shortcut for making a project:
+            mkdir mandatory-docs            (create the folder)
+            cd mandatory-docs               (access the folder)
+            git init                        (create the .git folder)
+            npm init -y                     (create npm)
+            npm i express serverless-http   (install express)
+            npm i -D nodemon                (install nodemon)
+TODO 2: Folder structure with gitignore (important!)
+        .gitignore:
+            (For repo-hygiene)
+            Write in gitIgnore file:
+                node_modules
+                .env
+                .DS_Store
+        
+        Make new folder with a JS file:
+            See the server.js file
+            - import... from Requires "type": "module" in package.json
+            - express.static("public") = makes your static files available
+            - res.sendFile() = expects a absolut path, process.cwd() helps on that.
+            - PORT = Environment Variable is useful for deployment. In local you use 3000.
+
+        Frontend with HTML files:
+            Make so many page-folder as you need:
+                make a html file in the folder, then choose the html:5 for a empty HTML page.
+        
+        Backend with JS file:
+            Make backend in every frontend folder.
+
+        Assets with CSS og Images:
+            TBA.
+
+2. plan with SSR (Hvis jeg har tid!)
+    TODO 1:
+        Install EJS:
+            write in terminal: npm i EJS
+        
+        Update the structure:
+            .js to .ejs
+            make the server.js 
+
+
+Whatever bare gør det som giver mening! Skal være med SSR bare du vide.
