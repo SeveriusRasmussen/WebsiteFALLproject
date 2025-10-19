@@ -39,7 +39,7 @@ app.get("/", (_req, res) => {
     res.render("layout", { 
         title: "Docs",
         body: `
-            <h1>Documentation:</h1>
+            <h1>Documentation</h1>
             <ul>
                 ${files.map(slug => `<li><a href="/docs/${slug}">${slug}</a></li>`).join("")}
             </ul>
