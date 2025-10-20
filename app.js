@@ -32,24 +32,27 @@ app.get("/", (_req, res) => {
         body: `
             <h1>Documentation</h1>
             <ul>
-                ${files.map(slug => `<li><a href="/docs/${slug}">${slug}</a></li>`).join("")}
+                ${files.map(slug => `<li><a href="/docs-md/${slug}">${slug}</a></li>`).join("")}
             </ul>
         `
     });
 });
 
 // Route: vis ét markdown-dokument
-app.get("/docs/:slug", (req, res, next) => {
-    try {
-        const { slug } = req.params;
-        if (!/^[a-z0-9_-]+$/i.test(slug)) throw new Error("Invalid slug");
-        const full = path.join(__dirname, "docs-md", `${slug}.md`);
-        const raw = fs.readFileSync(full, "utf8");
-        const html = md.render(raw);
-        res.render("doc", { title: slug, content: html });
-    } catch (err) {
-        next(err);
+app.get("/docs-md/:slug", (req, res, next) => {
+    const { slug } = req.params;
+    if (!/^[a-z0-9_-]+$/i.test(slug)) {
+        return res.status(400).render("layout", { title: "Bad request", body: "<p>Invalid slug</p>" });
     }
+
+    const full = path.join(__dirname, "docs-md", `${slug}.md`);
+    if (!fs.existsSync(full)) {
+        return res.status(404).render("layout", { title: "Not found", body: `<p>Missing document: ${slug}.md</p>` });
+    }
+
+    const raw  = fs.readFileSync(full, "utf8");
+    const html = md.render(raw);
+    return res.render("doc", { title: slug, content: html });
 });
 
 // Simple 404:
